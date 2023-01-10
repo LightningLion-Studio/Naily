@@ -1,6 +1,7 @@
 {
   "name": "naily",
   "version": "1.0.0",
+  "main": "./src/index.js",
   "scripts": {
     "dev": "node ./example/test.js",
     "format": "prettier --write ."
