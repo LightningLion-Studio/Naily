@@ -1,6 +1,7 @@
 const { httpLogger } = require('./logger')
 const isObject = require('isobject')
 const express = require('express')
+const numberParser = require('./middleware/number')
 
 module.exports = (nai, naiConfig) => {
   // logger
@@ -24,5 +25,10 @@ module.exports = (nai, naiConfig) => {
     } else {
       nai.use(express.urlencoded())
     }
+  }
+  
+  // number parser
+  if (naiConfig.nai.numberParser) {
+    nai.use(numberParser)
   }
 }

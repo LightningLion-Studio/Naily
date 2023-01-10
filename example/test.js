@@ -10,6 +10,9 @@ const app = new Nai({
     },
     json: {}
   },
+  nai: {
+    
+  }
 })
 
 // router, you can write this on another file

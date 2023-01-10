@@ -7,4 +7,7 @@ module.exports = {
     },
     json: {}
   },
+  nai: {
+    numberParser: true
+  }
 }

@@ -13,10 +13,11 @@ class Nai {
 
     // inside middleware
     middlewareStruct(naiApp, naiConfig)
-
+    
     // init
     this.naiApp = naiApp
     this.naiConfig = naiConfig
+    
   }
 
   factory(naiFactory = {}) {
