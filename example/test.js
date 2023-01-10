@@ -4,6 +4,12 @@ const { Nai } = require('../src/index')
 // init App
 const app = new Nai({
   port: 666,
+  body: {
+    url: {
+      extended: false
+    },
+    json: {}
+  },
 })
 
 // router, you can write this on another file
@@ -11,6 +17,10 @@ const router = require('express').Router()
 const home = router.get('/', (req, res) => {
   // req.nai is an object, it save provider array in it
   res.json(req.nai)
+})
+const post = router.post('/', (req,res) => {
+  // it can configuration in nai constructor
+  res.json(req.body)
 })
 
 // init a factory

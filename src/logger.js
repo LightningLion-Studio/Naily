@@ -1,7 +1,8 @@
 const log4js = require('log4js')
-const httpLog = log4js.getLogger('Nai REQUEST')
 
-exports.httpLogger = log4js.connectLogger(httpLog, { level: 'INFO' })
+const httpLog = log4js.getLogger('Nai REQUEST')
+httpLog.level = 'trace'
+exports.httpLogger = log4js.connectLogger(httpLog, { level: 'MARK' })
 
 exports.naiFatal = (text, isThrow = false) => {
   const i = log4js.getLogger('Nai FATAL!')

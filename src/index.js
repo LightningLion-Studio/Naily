@@ -4,12 +4,17 @@ const express = require('express')
 const logger = require('./logger')
 const providerStruct = require('./provider.struct')
 const controllerStruct = require('./controller.struct')
+const middlewareStruct = require('./middleware.struct')
 
 class Nai {
   constructor(naiConfig = {}) {
     if (!isObject(naiConfig)) logger.naiFatal('Nai config must be an object', true)
     const naiApp = express()
-    naiApp.use(logger.httpLogger)
+
+    // inside middleware
+    middlewareStruct(naiApp, naiConfig)
+
+    // init
     this.naiApp = naiApp
     this.naiConfig = naiConfig
   }
