@@ -4,6 +4,7 @@ const logger = require('./logger')
 const express = require('express')
 const { httpLogger } = require('./logger')
 const expressIp = require('express-ip')
+const parseNumber = require('./middleware/number')
 
 module.exports = (config, Nai) => {
   if (!isObject(config)) logger.naiFatal('Nai.init config must be an object', true)
@@ -29,5 +30,9 @@ module.exports = (config, Nai) => {
   
   if (config.ip === true) {
     Nai.$app.use(expressIp().getIpInfoMiddleware)
+  }
+  
+  if (config.bodyParseNumber === true) {
+    Nai.$app.use(parseNumber)
   }
 }

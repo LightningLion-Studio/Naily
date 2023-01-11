@@ -3,5 +3,6 @@ module.exports = {
   body: true,
   crossOrigin: true,
   httpLogger: true,
-  ip: true
+  ip: true,
+  bodyParseNumber: true
 }
