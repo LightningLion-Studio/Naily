@@ -27,7 +27,7 @@ const Nai = {
   $logger: logger,
   $router(router) {
     const expRouter = express.Router()
-    return router.use(router)
+    return expRouter.use(router)
   }
 }
 
