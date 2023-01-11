@@ -25,6 +25,10 @@ const Nai = {
     this.$app.listen(this.$config.port, callback(this.$config.port))
   },
   $logger: logger,
+  $router(router) {
+    const expRouter = express.Router()
+    return router.use(router)
+  }
 }
 
 module.exports = Nai
