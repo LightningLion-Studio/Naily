@@ -1,40 +1,23 @@
-// 导入naily
-const { Nai } = require('../src/index')
+const Nai = require('../src/nai')
 
-// init App
-const app = new Nai({
-  port: 666,
-  body: {
-    url: {
-      extended: false
-    },
-    json: {}
-  },
-  nai: {
-    
-  }
+Nai.$init(require('./fullNaiConfig'))
+
+const home = Nai.$provider({
+  foo: '666',
+})
+const post = home.$provider({
+  bar: 'some data',
 })
 
-// router, you can write this on another file
-const router = require('express').Router()
-const home = router.get('/', (req, res) => {
-  // req.nai is an object, it save provider array in it
+home.get('/', (req, res) => {
+  // it will send foo:666
   res.json(req.nai)
 })
-const post = router.post('/', (req,res) => {
-  // it can configuration in nai constructor
-  res.json(req.body)
+
+post.get('/a', (req, res) => {
+  // it will send bar:some data
+  res.json(req.nai)
 })
 
-// init a factory
-app.factory({
-  provider: {
-    
-  },
-  controller: [home],
-})
-
-// in the end, start to run your app!
-app.start(() => {
-  console.log(`App is running at 666`)
-})
+Nai.$controller([home, post])
+Nai.$start(port => console.log(`App start at ${port}`))

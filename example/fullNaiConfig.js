@@ -1,13 +1,7 @@
 module.exports = {
-  port: 6666,
-  logger: true,
-  body: {
-    url: {
-      extended: false
-    },
-    json: {}
-  },
-  nai: {
-    numberParser: true
-  }
+  port: 666,
+  body: true,
+  crossOrigin: true,
+  httpLogger: true,
+  ip: true
 }

@@ -1,14 +1,16 @@
 {
   "name": "naily",
   "version": "1.0.0",
-  "main": "./src/index.js",
+  "main": "./src/nai.js",
   "scripts": {
+    "main": "node ./src/index.js",
     "dev": "node ./example/test.js",
     "format": "prettier --write ."
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "express": "^4.18.2",
+    "express-ip": "^1.0.4",
     "isarray": "^2.0.5",
     "isobject": "^4.0.0",
     "log4js": "^6.7.1"
