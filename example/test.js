@@ -28,7 +28,9 @@ const post = router.post('/', (req,res) => {
 
 // init a factory
 app.factory({
-  provider: ['some data'],
+  provider: {
+    
+  },
   controller: [home],
 })
 

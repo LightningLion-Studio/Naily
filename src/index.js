@@ -24,9 +24,9 @@ class Nai {
     if (!isObject(naiFactory)) logger.naiFatal('naiFactory must be an object')
     const provider = naiFactory.provider
     const controller = naiFactory.controller
-    if (!isArray(provider)) logger.naiFatal('naiFactory.provider must be an array', true)
+    if (!isObject(provider)) logger.naiFatal('naiFactory.provider must be an object', true)
     if (!isArray(controller)) logger.naiFatal('naiFactory.controller must be an array', true)
-    if (provider.length === 0) logger.naiError('Find an empty provider array')
+    if (JSON.stringify(provider) === '{}') logger.naiError('Find an empty provider object')
     if (controller.length === 0) logger.naiError('Find an empty provider array')
     providerStruct(this, provider)
     controllerStruct(this, controller)
